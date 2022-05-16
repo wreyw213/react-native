@@ -1,4 +1,4 @@
-import { View, Image, Dimensions } from 'react-native'
+import { View, Image, Dimensions,Share,Vibration } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import ImagePicker from 'react-native-image-crop-picker';
 import Button from '../../library/components/Button';
@@ -8,6 +8,7 @@ const { width } = Dimensions.get('window')
 
 function MyAccount(props) {
     const { navigation,isFocused } = props;
+
     // const isFocused = useIsFocused()
     const [images, setImages] = useState([])
     useEffect(() => {
@@ -23,6 +24,14 @@ function MyAccount(props) {
         }).catch((err) => {
             alert(err)
         })
+        // const res = await Share.share({
+        //     message:
+        //   'React Native | A framework for building native apps using React',
+        //   options:{
+        //     dialogTitle:"Share",
+        //     tintColor:'#FFFFFF'
+        //   }
+        // })
     }
     const handleCameraPicker = () => {
         ImagePicker.openCamera({
@@ -54,7 +63,7 @@ function MyAccount(props) {
                 })
                 }
             </View>
-            <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center' }}>
+            <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center', }}>
                 <Button
                     label={'Open Drawer'}
                     onPress={() => navigation.openDrawer()}
@@ -65,7 +74,7 @@ function MyAccount(props) {
                     label={'Open Picker'}
                     onPress={handleOpenPicker}
                     color={'#FFF'}
-                    style={{ margin: 10, width: width - 40 }}
+                    style={{ margin: 10, width: width - 40, }}
                 />
                 <Button
                     label={'Open Camera'}

@@ -11,7 +11,7 @@ const Field = React.forwardRef(({ style, onChange, placeHolder, value, label, ke
                 {...props}
                 onChangeText={(e) => onChange(e, keyItem)}
                 value={value}
-                style={[styles.input,style]}
+                style={[styles.input, style]}
                 placeholder={placeHolder}
             />
         </View>
@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
         borderColor: '#D7D7D7',
         height: width / 7.5,
         borderWidth: 1,
+        backgroundColor: '#FCFCFC',
         padding: width / 22.86,
     },
     label: {

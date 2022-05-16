@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     dropdownBtnStyle: {
         width: '100%',
         height: width / 7.5,
-        backgroundColor: '#FFF',
+        backgroundColor: '#FCFCFC',
         borderRadius: 10,
         paddingVertical: width / 32.86,
         paddingHorizontal: width / 22.86,
