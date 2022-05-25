@@ -12,11 +12,10 @@ const SelectField = React.forwardRef(({ onChange, value, label, keyItem, hasErro
             source={isOpened ? Icons.ArrowUp : Icons.ArrowDown}
         />
     )
-    // let dropdownBtnStyle = {
-    //     ...styles.dropdownBtnStyle,
-    //     borderColor:hasError ? Colors.RED : Colors.BACKGROUND_COLOR
-    // }
-    console.log(hasError,'hasError_____')
+    let dropdownBtnStyle = {
+        ...styles.dropdownBtnStyle,
+        borderColor:hasError ? Colors.RED : Colors.BACKGROUND_COLOR
+    }
     return (
         <View style={{ marginBottom: width / 18.75 }}>
             <Text style={styles.label}>{label}</Text>
@@ -44,7 +43,7 @@ const SelectField = React.forwardRef(({ onChange, value, label, keyItem, hasErro
                         </View>
                     );
                 }}
-                buttonStyle={styles.dropdownBtnStyle}
+                buttonStyle={dropdownBtnStyle}
                 buttonTextStyle={styles.dropdownBtnTxtStyle}
                 renderDropdownIcon={renderIcon}
                 dropdownStyle={styles.dropdownDropdownStyle}

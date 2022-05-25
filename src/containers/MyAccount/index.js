@@ -1,10 +1,10 @@
 import { View, Image, Dimensions,Share,Vibration } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import ImagePicker from 'react-native-image-crop-picker';
-import Button from '../../library/components/Button';
-import IsFocusedHoc from '../../library/components/Hoc';
+import Button from 'library/components/Button';
+import IsFocusedHoc from 'library/components/Hoc';
 import { DrawerActions } from '@react-navigation/native';
-import { Texts } from '../../library/constants';
+import { Texts } from 'library/constants';
 
 const { width } = Dimensions.get('window')
 

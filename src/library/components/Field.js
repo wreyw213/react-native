@@ -17,7 +17,7 @@ console.log(isFocused,'isFocused091092');
                 onBlur={() => setIsFocused(false)}
                 onChangeText={(e) => onChange(e, keyItem)}
                 value={value}
-                style={[styles.input, style]}
+                style={[styles.input, isFocused && { borderColor: Colors.BLUE }, hasError && { borderColor: Colors.RED }, style]}
                 placeholder={placeHolder}
             />
             {hasError && <Text style={styles.errorMessage}>{errorMessage || 'Invalid Data'}</Text>}

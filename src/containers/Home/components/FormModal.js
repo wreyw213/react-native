@@ -1,13 +1,13 @@
 import { View, Text, Modal, Alert, StyleSheet, Dimensions, Image, Pressable, TextInput } from 'react-native'
 import React, { useState, useRef } from 'react'
-import Field from '../../../library/components/Field';
-import Icons from '../../../library/Icons';
-import SelectField from '../../../library/components/SelectField';
-import Button from '../../../library/components/Button';
+import Field from 'library/components/Field';
+import Icons from 'library/Icons';
+import SelectField from 'library/components/SelectField';
+import Button from 'library/components/Button';
 const { width } = Dimensions.get('window');
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import { Texts, ValidationTypes } from '../../../library/constants';
-import { validate, validateAll } from '../../../library/utils/Validation';
+import { Texts, ValidationTypes } from 'library/constants';
+import { validate, validateAll } from 'library/utils/Validation';
 
 const insurenceData = [
     {

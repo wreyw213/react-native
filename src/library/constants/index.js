@@ -39,14 +39,14 @@ export const Texts = {
     SELECT: 'Select'
 }
 export const Colors = {
-    WHITE: '#FFFFF',
-    INACTIVE_BLUE: '11AFF7',
+    WHITE: '#FFFFFF',
+    INACTIVE_BLUE: '#11AFF7',
     GREY: '#333333',
-    LIGHT_BLUE: '425CB11A',
+    LIGHT_BLUE: '#425CB11A',
     SKY_BLUE: '#06BBF9',
-    WHITE_9D: 'FFFFFF9D',
-    BACKGROUND_COLOR: 'D7D7D7',
-    INACTIVE_WHITE: 'FCFCFC',
+    WHITE_9D: '#FFFFFF9D',
+    BACKGROUND_COLOR: '#D7D7D7',
+    INACTIVE_WHITE: '#FCFCFC',
     RED: 'red',
     BLUE: '#2C8FF2',
     EFEFEF: '#EFEFEF',

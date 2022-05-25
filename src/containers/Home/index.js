@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Dimensions, TouchableOpacity, FlatList, View, Text, Image } from 'react-native';
-import Card from "../../library/components/Card";
-import Header from "../../library/components/Header";
-import Icons from '../../library/Icons';
+import { Dimensions, FlatList, View, Text, Image } from 'react-native';
+import Card from "library/components/Card";
+import Header from "library/components/Header";
+import Icons from 'library/Icons';
 import FormModal from "./components/FormModal";
 import styles from "./style";
 

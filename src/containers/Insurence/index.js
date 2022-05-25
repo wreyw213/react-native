@@ -1,6 +1,6 @@
 import { View, Text, Alert } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import Button from '../../library/components/Button';
+import Button from 'library/components/Button';
 const { io } = require("socket.io-client");
 const socket = io("http://localhost:3000");
 export default function Insurence() {

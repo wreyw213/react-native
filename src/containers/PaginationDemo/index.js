@@ -1,7 +1,7 @@
 import { View, Text, FlatList,StyleSheet, ActivityIndicator, Dimensions,TouchableOpacity,Image } from 'react-native'
 import React, { useState,useEffect } from 'react'
-import Data from '../../data.json';
-import Icons from '../../library/Icons';
+import Data from 'library/data.json';
+import Icons from 'library/Icons';
 const { width } = Dimensions.get('window')
 
 export default function PaginationDemo(props) {
