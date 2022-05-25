@@ -53,3 +53,8 @@ export const Colors = {
     F8FAFB: '#F8FAFB',
     A666666:'#666666'
 }
+export const ValidationTypes = {
+    EMAIL: 'EMAIL',
+    REQUIRED: 'REQUIRED',
+    NUMBER: 'NUMBER'
+}

@@ -1,4 +1,4 @@
-import { View, Text, Modal, StyleSheet, Dimensions, Image, Pressable, TextInput } from 'react-native'
+import { View, Text, Modal, Alert, StyleSheet, Dimensions, Image, Pressable, TextInput } from 'react-native'
 import React, { useState, useRef } from 'react'
 import Field from '../../../library/components/Field';
 import Icons from '../../../library/Icons';
@@ -6,7 +6,8 @@ import SelectField from '../../../library/components/SelectField';
 import Button from '../../../library/components/Button';
 const { width } = Dimensions.get('window');
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import { Texts } from '../../../library/constants';
+import { Texts, ValidationTypes } from '../../../library/constants';
+import { validate, validateAll } from '../../../library/utils/Validation';
 
 const insurenceData = [
     {
@@ -27,7 +28,7 @@ const insurenceData = [
     }
 ]
 
-export default function FormModal({ hideModal, }) {
+export default function FormModal({ hideModal }) {
     let policyInputRef = useRef()
     let selectRef = useRef()
     const [formData, setFormData] = useState({
@@ -35,11 +36,43 @@ export default function FormModal({ hideModal, }) {
         insurence: '',
         policy: ''
     })
+    const [errorData, setErrorData] = useState({
+        data: {},
+        message: {}
+    });
     const onChange = (e, key) => {
+        setErrorData({
+            ...errorData,
+            data:{
+                ...errorData.data,
+                [key] : false
+            }
+        })
         setFormData((prev) => ({
             ...prev,
             [key]: e
         }))
+    }
+
+    const handleSubmit = () => {
+        const keys = [
+            { type: ValidationTypes.REQUIRED, key: 'email', message: 'Please Enter Email Id' },
+            { type: ValidationTypes.EMAIL, key: 'email', message: 'Please Enter Valid Email Id' },
+            { type: ValidationTypes.REQUIRED, key: 'insurence', message: 'Please Select Insurence Agency' },
+            { type: ValidationTypes.REQUIRED, key: 'policy', message: 'Please Enter policy No' },
+            { type: ValidationTypes.NUMBER, key: 'policy', message: 'Please Enter Valid policy No' },
+        ]
+        // const response = validate(formData,keys);
+
+        const response = validateAll(formData,keys);
+        console.log(response, "response")
+        if(!response.valid){
+            console.log(response, "response");
+            // Alert.alert(Texts.APP_NAME,response.message)
+            setErrorData(response)
+            return
+        }
+        hideModal()
     }
     return (
         <Modal
@@ -71,6 +104,8 @@ export default function FormModal({ hideModal, }) {
                             value={formData.email}
                             keyItem={'email'}
                             onChange={onChange}
+                            hasError={errorData.data.email}
+                            errorMessage={errorData.message.email}
                             placeHolder={Texts.EMAIL_PLACEHOLDER}
                             returnKeyType='next'
                             onSubmitEditing={() => {
@@ -82,6 +117,8 @@ export default function FormModal({ hideModal, }) {
                             label={Texts.INSURENCE_AGENCY}
                             value={formData.insurence}
                             keyItem={'insurence'}
+                            hasError={errorData.data.insurence}
+                            errorMessage={errorData.message.insurence}
                             onChange={(e, key) => {
                                 onChange(e, key);
                                 policyInputRef.current && policyInputRef.current.focus();
@@ -94,6 +131,8 @@ export default function FormModal({ hideModal, }) {
                             label={Texts.POLICY_NUMBER}
                             value={formData.policy}
                             keyItem={'policy'}
+                            hasError={errorData.data.policy}
+                            errorMessage={errorData.message.policy}
                             isFocused={policyInputRef.current && policyInputRef.current.isFocused()}
                             onChange={onChange}
                             placeHolder={Texts.POLICY_PLACEHOLDER}
@@ -112,7 +151,7 @@ export default function FormModal({ hideModal, }) {
                             <Button
                                 label={Texts.SAVE}
                                 color={'#FFFFFF'}
-                                onPress={() => console.log('pressed')}
+                                onPress={handleSubmit}
                             />
                         </View>
                     </KeyboardAwareScrollView>

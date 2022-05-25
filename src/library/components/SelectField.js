@@ -5,13 +5,18 @@ import Icons from '../Icons';
 import { Colors, Texts } from '../constants';
 const { width } = Dimensions.get('window')
 
-const SelectField = React.forwardRef(({ onChange, value, label, keyItem, data = [], ...props }, ref) => {
+const SelectField = React.forwardRef(({ onChange, value, label, keyItem, hasError=false, errorMessage, data = [], ...props }, ref) => {
 
     const renderIcon = (isOpened) => (
         <Image
             source={isOpened ? Icons.ArrowUp : Icons.ArrowDown}
         />
     )
+    // let dropdownBtnStyle = {
+    //     ...styles.dropdownBtnStyle,
+    //     borderColor:hasError ? Colors.RED : Colors.BACKGROUND_COLOR
+    // }
+    console.log(hasError,'hasError_____')
     return (
         <View style={{ marginBottom: width / 18.75 }}>
             <Text style={styles.label}>{label}</Text>
@@ -39,13 +44,13 @@ const SelectField = React.forwardRef(({ onChange, value, label, keyItem, data = 
                         </View>
                     );
                 }}
-                // defaultButtonText={'Select'}
                 buttonStyle={styles.dropdownBtnStyle}
                 buttonTextStyle={styles.dropdownBtnTxtStyle}
                 renderDropdownIcon={renderIcon}
                 dropdownStyle={styles.dropdownDropdownStyle}
                 rowTextStyle={styles.dropdownRowTxtStyle}
             />
+            {hasError && <Text style={styles.errorMessage}>{errorMessage || 'Invalid Data'}</Text>}
         </View>
     )
 }
@@ -86,6 +91,12 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontFamily: Texts.OPENSANS_REGULAR
     },
+    errorMessage:{
+        fontSize: 10,
+        color:Colors.RED,
+        fontFamily: Texts.OPENSANS_REGULAR,
+        marginTop: 2,
+    }
 })
 
 export default SelectField;
