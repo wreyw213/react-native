@@ -6,7 +6,9 @@ import { DrawerItems } from '../constants';
 const { width } = Dimensions.get('window')
 
 export default function CustomDrawer(props) {
-    const focused = props.state.index
+    // const focused = props.state.index
+    const currentRouteName = props.nav()?.getCurrentRoute()?.name;
+    console.log(currentRouteName,'currentRouteName');
     return (
         <DrawerContentScrollView {...props}>
             <View style={styles.drawerHeader}>
@@ -30,18 +32,20 @@ export default function CustomDrawer(props) {
             </View>
             {
                 DrawerItems.map((item, index) => {
+                    console.log(item,"item")
+                    const focused = currentRouteName== item.focusedRoute ? true : false
                     return (
                         <TouchableOpacity onPress={() => {
                             props.navigation.navigate(item.Screen);
-                        }} style={[styles.DrawerListItem, focused === index && styles.DrawerListActiveItem]}>
+                        }} style={[styles.DrawerListItem, focused  && styles.DrawerListActiveItem]}>
 
-                            <View style={[styles.InActiveDrawerListIcon, focused === index && styles.DrawerListIconView]}>
+                            <View style={[styles.InActiveDrawerListIcon, focused  && styles.DrawerListIconView]}>
                                 <Image
                                     source={Images[item.Icon]}
-                                    style={[{ tintColor: "#11AFF7" }, focused === index && styles.DrawerListIcon]}
+                                    style={[{ tintColor: "#11AFF7" }, focused  && styles.DrawerListIcon]}
                                 />
                             </View>
-                            <Text style={[styles.drawerItemText, focused === index && styles.drawerItemActiveText]}>{item.label}</Text>
+                            <Text style={[styles.drawerItemText, focused  && styles.drawerItemActiveText]}>{item.label}</Text>
                         </TouchableOpacity >
                     )
                 })

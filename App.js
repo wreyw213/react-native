@@ -1,19 +1,20 @@
 
-import React from 'react';
+import React, { createRef } from 'react';
 import {
-  SafeAreaView,  
+  SafeAreaView, Image, StyleSheet,View,TouchableOpacity,Text
 } from 'react-native';
   import { NavigationContainer } from '@react-navigation/native';
  import DrawerNavigation from './src/Navigation/DrawerNavigation';
 
-
 export default App = () => {
-   return (
-     <SafeAreaView style={{ flex: 1 }}>
-       <NavigationContainer>
-         <DrawerNavigation />
-       </NavigationContainer>
-     </SafeAreaView>
-   );
+  const navigationRef = createRef()
+  const nav = () => navigationRef.current
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
+      <NavigationContainer ref={navigationRef}>
+        <DrawerNavigation nav={nav} />
+      </NavigationContainer>
+    </SafeAreaView>
+  );
 };
  

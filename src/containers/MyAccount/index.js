@@ -4,6 +4,8 @@ import ImagePicker from 'react-native-image-crop-picker';
 import Button from '../../library/components/Button';
 import { useIsFocused } from '@react-navigation/native';
 import IsFocusedHoc from '../../library/components/Hoc';
+import { DrawerActions } from '@react-navigation/native';
+
 const { width } = Dimensions.get('window')
 
 function MyAccount(props) {
@@ -66,7 +68,7 @@ function MyAccount(props) {
             <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center', }}>
                 <Button
                     label={'Open Drawer'}
-                    onPress={() => navigation.openDrawer()}
+                    onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
                     color={'#FFF'}
                     style={{ margin: 10, width: width - 40 }}
                 />

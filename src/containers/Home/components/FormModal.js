@@ -1,4 +1,4 @@
-import { View, Text, Modal, StyleSheet, Dimensions, Image, Pressable, findNodeHandle } from 'react-native'
+import { View, Text, Modal, StyleSheet, Dimensions, Image, Pressable, TextInput } from 'react-native'
 import React, { useState, useRef } from 'react'
 import Field from '../../../library/components/Field';
 import Icons from '../../../library/Icons';
@@ -27,8 +27,9 @@ const insurenceData = [
 ]
 
 export default function FormModal({ hideModal, }) {
-    var policyInputRef = useRef(null)
-    var selectRef = useRef(null)
+    let emailRef = useRef()
+    let policyInputRef = useRef()
+    let selectRef = useRef()
     const [formData, setFormData] = useState({
         email: '',
         insurence: '',
@@ -53,7 +54,7 @@ export default function FormModal({ hideModal, }) {
             <View style={styles.container}>
                 <View style={styles.modalView}>
                     <Pressable
-                        style={{ alignSelf: 'flex-end' }}
+                        style={{ alignSelf: 'flex-end'}}
                         onPress={() => hideModal()}
                     >
                         <Image
@@ -76,7 +77,6 @@ export default function FormModal({ hideModal, }) {
                             returnKeyType='next'
                             onSubmitEditing={() => {
                                 selectRef.openDropdown()
-                                console.log(selectRef, 'selectRef')
                             }}
                         />
                         <SelectField
@@ -86,16 +86,17 @@ export default function FormModal({ hideModal, }) {
                             keyItem={'insurence'}
                             onChange={(e, key) => {
                                 onChange(e, key);
-                                policyInputRef.focus()
+                                policyInputRef.current && policyInputRef.current.focus();
                             }}
                             data={insurenceData}
                         />
 
                         <Field
-                            ref={(ref) => { policyInputRef = ref }}
+                            ref={policyInputRef}
                             label={'Policy Number'}
                             value={formData.policy}
                             keyItem={'policy'}
+                            isFocused={policyInputRef.current && policyInputRef.current.isFocused()}
                             onChange={onChange}
                             placeHolder={'Enter number'}
                             returnKeyType='done'

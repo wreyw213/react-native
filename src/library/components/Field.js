@@ -1,17 +1,20 @@
-import { View, Text, TextInput, StyleSheet, Dimensions } from 'react-native'
-import React from 'react';
+import { View,Text, TextInput, StyleSheet, Dimensions } from 'react-native'
+import React, { forwardRef,useState,useEffect } from 'react';
 const { width } = Dimensions.get('window')
 
-const Field = React.forwardRef(({ style, onChange, placeHolder, value, label, keyItem, data, ...props }, ref) => {
+const Field = forwardRef(({ style, onChange, placeHolder, value, label, keyItem, data, ...props }, ref) => {
+const [isFocused, setIsFocused] = useState(false)
     return (
         <View style={{ marginBottom: width / 18.75 }}>
             <Text style={styles.label}>{label}</Text>
             <TextInput
                 ref={ref}
-                {...props}
+                onFocus={() => setIsFocused(true)}
+                onBlur={() => setIsFocused(false)}
+                // {...props}
                 onChangeText={(e) => onChange(e, keyItem)}
                 value={value}
-                style={[styles.input, style]}
+                style={[styles.input, isFocused && { borderColor: 'red' }, style,]}
                 placeholder={placeHolder}
             />
         </View>

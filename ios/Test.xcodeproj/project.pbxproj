@@ -21,8 +21,6 @@
 		5EBDC51FEBBB4677BDCECA77 /* Inter-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBE27D0DD13E46868C1CB881 /* Inter-ExtraBold.ttf */; };
 		741BFF7B65794E9BB3901810 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F00BB75FCAAD4D87BFC8B445 /* OpenSans-Italic.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		822DEB7D282E756F00331283 /* RCTCalendarModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 822DEB7C282E756F00331283 /* RCTCalendarModule.m */; };
-		822DEB7E282E756F00331283 /* RCTCalendarModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 822DEB7C282E756F00331283 /* RCTCalendarModule.m */; };
 		887CFC0F9E384550A7517CAF /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B54C47FE7D0A4BD9BFA5140D /* OpenSans-Bold.ttf */; };
 		9AFD227E849C4D7082E75B0F /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4625BE02729142659A0BA40D /* OpenSans-BoldItalic.ttf */; };
 		A5F35B5E35FE4535BA2088AE /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D80682A19B242AB873A95A8 /* Inter-Regular.ttf */; };
@@ -45,6 +43,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = Test;
+		};
+		82CE325B283CBE2B008CB823 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 82CE3257283CBE2B008CB823 /* React Native Open Settings.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 190C8BAA1BEAADCC00CD505E;
+			remoteInfo = "React Native Open Settings";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -74,8 +79,7 @@
 		7C0850101B27C43FE717D4DB /* Pods-Test-TestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test-TestTests.debug.xcconfig"; path = "Target Support Files/Pods-Test-TestTests/Pods-Test-TestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7FD9B2E99C24428BA73DA66E /* Inter-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Thin.ttf"; path = "../src/assets/fonts/Inter-Thin.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Test/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		822DEB77282E72A400331283 /* RCTCalendarModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTCalendarModule.h; sourceTree = "<group>"; };
-		822DEB7C282E756F00331283 /* RCTCalendarModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTCalendarModule.m; sourceTree = "<group>"; };
+		82CE3257283CBE2B008CB823 /* React Native Open Settings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "React Native Open Settings.xcodeproj"; path = "../node_modules/react-native-open-settings/React Native Open Settings.xcodeproj"; sourceTree = "<group>"; };
 		B54C47FE7D0A4BD9BFA5140D /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Bold.ttf"; path = "../src/assets/fonts/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		BF991F72C71745BABC744D91 /* Inter-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Light.ttf"; path = "../src/assets/fonts/Inter-Light.ttf"; sourceTree = "<group>"; };
 		C636EB2C55064EE4818CBEA3 /* Inter-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Medium.ttf"; path = "../src/assets/fonts/Inter-Medium.ttf"; sourceTree = "<group>"; };
@@ -177,9 +181,18 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		82CE3258283CBE2B008CB823 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				82CE325C283CBE2B008CB823 /* libReact Native Open Settings.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				82CE3257283CBE2B008CB823 /* React Native Open Settings.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -187,8 +200,6 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				822DEB7C282E756F00331283 /* RCTCalendarModule.m */,
-				822DEB77282E72A400331283 /* RCTCalendarModule.h */,
 				13B07FAE1A68108700A75B9A /* Test */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* TestTests */,
@@ -296,6 +307,12 @@
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 82CE3258283CBE2B008CB823 /* Products */;
+					ProjectRef = 82CE3257283CBE2B008CB823 /* React Native Open Settings.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* Test */,
@@ -303,6 +320,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		82CE325C283CBE2B008CB823 /* libReact Native Open Settings.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libReact Native Open Settings.a";
+			remoteRef = 82CE325B283CBE2B008CB823 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		00E356EC1AD99517003FC87E /* Resources */ = {
@@ -497,7 +524,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				00E356F31AD99517003FC87E /* TestTests.m in Sources */,
-				822DEB7E282E756F00331283 /* RCTCalendarModule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,7 +531,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				822DEB7D282E756F00331283 /* RCTCalendarModule.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
