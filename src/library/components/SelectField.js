@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, Dimensions, Image } from 'react-native'
 import React from 'react';
 import DropDownPicker from 'react-native-select-dropdown'
 import Icons from '../Icons';
+import { Colors, Texts } from '../constants';
 const { width } = Dimensions.get('window')
 
 const SelectField = React.forwardRef(({ onChange, value, label, keyItem, data = [], ...props }, ref) => {
@@ -27,7 +28,7 @@ const SelectField = React.forwardRef(({ onChange, value, label, keyItem, data = 
                 renderCustomizedButtonChild={(selectedItem, index) => {
                     return (
                         <View>
-                            <Text style={styles.dropdownBtnTxtStyle}>{selectedItem ? selectedItem.title : 'Select'}</Text>
+                            <Text style={styles.dropdownBtnTxtStyle}>{selectedItem ? selectedItem.title : Texts.SELECT}</Text>
                         </View>
                     );
                 }}
@@ -54,36 +55,36 @@ const styles = StyleSheet.create({
 
     label: {
         fontSize: 14,
-        fontFamily: 'OpenSans-Medium',
+        fontFamily: Texts.OPENSANS_MEDIUM,
         marginBottom: 10,
     },
     dropdownBtnStyle: {
         width: '100%',
         height: width / 7.5,
-        backgroundColor: '#FCFCFC',
+        backgroundColor: Colors.INACTIVE_WHITE,
         borderRadius: 10,
         paddingVertical: width / 32.86,
         paddingHorizontal: width / 22.86,
         borderWidth: 1,
-        borderColor: '#D7D7D7',
+        borderColor: Colors.BACKGROUND_COLOR,
     },
     dropdownBtnTxtStyle: {
         fontSize: 14,
-        color: '#333333',
-        fontFamily: 'OpenSans-Regular',
+        color: Colors.GREY,
+        fontFamily: Texts.OPENSANS_REGULAR,
         textAlign: 'left'
     },
     dropdownDropdownStyle: {
-        backgroundColor: '#EFEFEF',
+        backgroundColor: Colors.EFEFEF,
         borderRadius: 5,
         paddingLeft: 15,
         paddingRight: 15
     },
     dropdownRowTxtStyle: {
-        color: '#333333',
+        color: Colors.GREY,
         textAlign: 'left',
         fontSize: 14,
-        fontFamily: 'OpenSans-Regular'
+        fontFamily: Texts.OPENSANS_REGULAR
     },
 })
 

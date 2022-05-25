@@ -3,11 +3,8 @@ import React, { useState, useEffect } from 'react'
 import MapView, { Marker } from 'react-native-maps';
 import Geolocation from "react-native-geolocation-service";
 import { Linking } from 'react-native';
-
+import { Texts } from '../../library/constants';
 let { width, height } = Dimensions.get('window')
-const ASPECT_RATIO = width / height
-const LATITUDE_DELTA = 40
-const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO
 //for ios only 
 export default function Emergency() {
     const [currentRegion, setCurrentRegion] = useState(null)
@@ -23,12 +20,12 @@ export default function Emergency() {
             })
         }, (error) => {
             if (error.code == 1) {
-                Alert.alert("Test app", "Please enable Location", [{ text: 'OK', onPress: () => Linking.openSettings() },{
-                    text: "Cancel",
+                Alert.alert(Texts.APP_NAME, Texts.ENABLE_LOCATION, [{ text: Texts.OK, onPress: () => Linking.openSettings() },{
+                    text: Texts.CANCEL,
                     style: "cancel"
                   }])
             } else {
-                Alert.alert("Test app", error.message)
+                Alert.alert(Texts.APP_NAME, error.message)
             }
         })
     }

@@ -6,6 +6,7 @@ import SelectField from '../../../library/components/SelectField';
 import Button from '../../../library/components/Button';
 const { width } = Dimensions.get('window');
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { Texts } from '../../../library/constants';
 
 const insurenceData = [
     {
@@ -27,7 +28,6 @@ const insurenceData = [
 ]
 
 export default function FormModal({ hideModal, }) {
-    let emailRef = useRef()
     let policyInputRef = useRef()
     let selectRef = useRef()
     const [formData, setFormData] = useState({
@@ -61,19 +61,17 @@ export default function FormModal({ hideModal, }) {
                             source={Icons.Close}
                         />
                     </Pressable>
-                    <Text style={styles.headingText}>Welcome to
-                        Big Rig Wizard</Text>
-                    <Text style={styles.text}>Please enter your insurance agency
-                        and policy number</Text>
+                    <Text style={styles.headingText}>{Texts.WELCOME_TEXT}</Text>
+                    <Text style={styles.text}>{Texts.INSURENCE_POLICY}</Text>
                     <KeyboardAwareScrollView
                         showsVerticalScrollIndicator={false}
                     >
                         <Field
-                            label={'Email'}
+                            label={Texts.EMAIL}
                             value={formData.email}
                             keyItem={'email'}
                             onChange={onChange}
-                            placeHolder={'Enter Email'}
+                            placeHolder={Texts.EMAIL_PLACEHOLDER}
                             returnKeyType='next'
                             onSubmitEditing={() => {
                                 selectRef.openDropdown()
@@ -81,7 +79,7 @@ export default function FormModal({ hideModal, }) {
                         />
                         <SelectField
                             ref={ref => { selectRef = ref }}
-                            label={'Insurance Agency'}
+                            label={Texts.INSURENCE_AGENCY}
                             value={formData.insurence}
                             keyItem={'insurence'}
                             onChange={(e, key) => {
@@ -93,26 +91,26 @@ export default function FormModal({ hideModal, }) {
 
                         <Field
                             ref={policyInputRef}
-                            label={'Policy Number'}
+                            label={Texts.POLICY_NUMBER}
                             value={formData.policy}
                             keyItem={'policy'}
                             isFocused={policyInputRef.current && policyInputRef.current.isFocused()}
                             onChange={onChange}
-                            placeHolder={'Enter number'}
+                            placeHolder={Texts.POLICY_PLACEHOLDER}
                             returnKeyType='done'
                             onSubmitEditing={() => hideModal()}
                         />
 
                         <View style={{ flexDirection: 'row', marginTop: width / 26 }}>
                             <Button
-                                label={'Cancel'}
+                                label={Texts.CANCEL}
                                 color={'#999999'}
                                 inactive={true}
                                 style={{ marginRight: width / 25 }}
                                 onPress={() => hideModal()}
                             />
                             <Button
-                                label={'Save'}
+                                label={Texts.SAVE}
                                 color={'#FFFFFF'}
                                 onPress={() => console.log('pressed')}
                             />
@@ -156,16 +154,16 @@ const styles = StyleSheet.create({
         color: '#333333',
         textAlign: 'center',
         fontSize: 22,
-        fontFamily: 'OpenSans-SemiBold',
+        fontFamily: Texts.OPENSANS_SEMIBOLD,
         alignSelf: 'center'
     },
     text: {
         width: width / 1.6,
         color: '#666666',
-    textAlign: 'center',
+        textAlign: 'center',
         marginTop: width / 46.87,
         fontSize: 14,
-        fontFamily: 'OpenSans-Regular',
+        fontFamily: Texts.OPENSANS_REGULAR,
         alignSelf: 'center'
     }
 })

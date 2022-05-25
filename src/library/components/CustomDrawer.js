@@ -2,13 +2,12 @@ import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity } from 'rea
 import { DrawerContentScrollView } from '@react-navigation/drawer';
 import React from 'react'
 import Images from '../Icons';
-import { DrawerItems } from '../constants';
+import { Colors, DrawerItems, Texts } from '../constants';
 const { width } = Dimensions.get('window')
 
 export default function CustomDrawer(props) {
     // const focused = props.state.index
     const currentRouteName = props.nav()?.getCurrentRoute()?.name;
-    console.log(currentRouteName,'currentRouteName');
     return (
         <DrawerContentScrollView {...props}>
             <View style={styles.drawerHeader}>
@@ -21,18 +20,17 @@ export default function CustomDrawer(props) {
                 <View style={styles.insurenceProviderView}>
                     <Image
                         source={Images.SupportIcon}
-                        style={{tintColor:"#FFF"}}
+                        style={{ tintColor: Colors.WHITE }}
                     />
                     <View style={styles.insurenceDetailsView}>
-                        <Text style={styles.insurenceProviderText}>PROVIDER</Text>
-                        <Text style={styles.insurenceAquityText}>AQUITY INSURANCE</Text>
-                        <Text style={styles.insurencePolicyText}>Policy No - <Text style={{ color: '#FFFFFF' }}>AquiTy@123</Text></Text>
+                        <Text style={styles.insurenceProviderText}>{Texts.PROVIDER}</Text>
+                        <Text style={styles.insurenceAquityText}>{Texts.AQUITY_INSURANCE}</Text>
+                        <Text style={styles.insurencePolicyText}>{Texts.POLICY_NUMBER} - <Text style={{ color: Colors.WHITE }}>AquiTy@123</Text></Text>
                     </View>
                 </View>
             </View>
             {
                 DrawerItems.map((item, index) => {
-                    console.log(item,"item")
                     const focused = currentRouteName== item.focusedRoute ? true : false
                     return (
                         <TouchableOpacity onPress={() => {
@@ -42,7 +40,7 @@ export default function CustomDrawer(props) {
                             <View style={[styles.InActiveDrawerListIcon, focused  && styles.DrawerListIconView]}>
                                 <Image
                                     source={Images[item.Icon]}
-                                    style={[{ tintColor: "#11AFF7" }, focused  && styles.DrawerListIcon]}
+                                    style={[{ tintColor: Colors.INACTIVE_BLUE }, focused && styles.DrawerListIcon]}
                                 />
                             </View>
                             <Text style={[styles.drawerItemText, focused  && styles.drawerItemActiveText]}>{item.label}</Text>
@@ -56,7 +54,7 @@ export default function CustomDrawer(props) {
 const styles = StyleSheet.create({
     drawerHeader: {
         height: width / 1.93,
-        backgroundColor: '#06BBF9',
+        backgroundColor: Colors.SKY_BLUE,
         borderBottomRightRadius: 20,
         padding: width / 18.17,
         marginTop: -10,
@@ -64,13 +62,13 @@ const styles = StyleSheet.create({
     },
     drawerProfileName: {
         fontSize: 22,
-        fontFamily: 'OpenSans-Bold',
+        fontFamily: Texts.OPENSANS_BOLD,
         marginLeft: width / 18.7,
-        color: "#FFFFFF"
+        color: Colors.WHITE
     },
     InActiveDrawerListIcon: {
-        tintColor: "#11AFF7",
-        backgroundColor: '#425CB11A',
+        tintColor: Colors.INACTIVE_BLUE,
+        backgroundColor: Colors.LIGHT_BLUE,
         padding: 5,
         borderRadius: 100
     },
@@ -81,24 +79,24 @@ const styles = StyleSheet.create({
         padding: width / 25.93,
     },
     DrawerListActiveItem: {
-        backgroundColor: "#11AFF7",
+        backgroundColor: Colors.INACTIVE_BLUE,
         borderRadius: 10
     },
     DrawerListIcon: {
-        tintColor: '#FFF'
+        tintColor: Colors.WHITE
     },
     DrawerListIconView: {
-        backgroundColor: "#11AFF7",
+        backgroundColor: Colors.INACTIVE_BLUE,
     },
     drawerItemText: {
         marginLeft: width / 37.4,
-        color: "#333333",
+        color: Colors.GREY,
         fontSize: 14,
-        fontFamily: 'OpenSans-SemiBold',
+        fontFamily: Texts.OPENSANS_SEMIBOLD,
         textTransform: 'uppercase',
     },
     drawerItemActiveText: {
-        color: "#FFF",
+        color: Colors.WHITE,
     },
     insurenceProviderView: {
         marginTop: width / 16.26,
@@ -108,17 +106,17 @@ const styles = StyleSheet.create({
         marginLeft: width / 43.16
     },
     insurenceProviderText: {
-        color: '#FFFFFF',
+        color: Colors.WHITE,
         fontSize: 12
     },
     insurenceAquityText: {
-        fontFamily: 'OpenSans-SemiBold',
-        color: '#FFFFFF',
+        fontFamily: Texts.OPENSANS_SEMIBOLD,
+        color: Colors.WHITE,
         fontSize: 14
     },
     insurencePolicyText: {
-        color: '#FFFFFF9D',
-        fontFamily: 'OpenSans-Regular',
+        color: Colors.WHITE_9D,
+        fontFamily: Texts.OPENSANS_REGULAR,
         fontSize: 12,
     }
 })

@@ -3,6 +3,7 @@ import {
     TouchableOpacity
 } from 'react-native'
 import React from 'react'
+import { Texts } from '../constants'
 const { width } = Dimensions.get('window')
 
 export default function Button({ style, label, inactive, onPress, color, ...props }) {
@@ -11,7 +12,7 @@ export default function Button({ style, label, inactive, onPress, color, ...prop
         <TouchableOpacity
             {...props}
             onPress={onPress}
-            style={[inactive ? styles.inactibeButtonStyle : styles.buttonStyle, style]}      >
+            style={[inactive ? styles.inactibeButtonStyle : styles.buttonStyle, style]}>
             <Text style={[styles.label, { color: color }]}>{label}</Text>
         </TouchableOpacity>
     )
@@ -41,6 +42,6 @@ const styles = StyleSheet.create({
     label: {
         fontSize: 18,
         lineHeight: 24.51,
-        fontFamily: 'OpenSans-SemiBold'
+        fontFamily: Texts.OPENSANS_SEMIBOLD
     }
 })

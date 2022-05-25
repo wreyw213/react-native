@@ -45,7 +45,6 @@ export default function PaginationDemo(props) {
             </View>
         )
       }
-      console.log(paginationData.length,Data.length,'paginationData')
   return (
       <View style={{ paddingHorizontal: width/18.75,flex:1 }}>
           <TouchableOpacity

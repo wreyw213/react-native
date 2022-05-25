@@ -1,10 +1,10 @@
 import React from 'react'
 import { View, Image, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
+import { Colors } from '../constants';
 import Icons from '../Icons';
 
 const { height, width } = Dimensions.get('window')
 function Header({ navigation, onPress }) {
-    console.log(navigation, 'navigation')
     return (
         <View style={styles.header}>
             <TouchableOpacity
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         height: width / 1.44,
         borderBottomLeftRadius: width / 9.75,
         borderBottomRightRadius: width / 9.75,
-        backgroundColor: '#2C8FF2',
+        backgroundColor: Colors.BLUE,
         flexDirection: 'row',
     },
     menu: {

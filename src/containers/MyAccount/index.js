@@ -2,16 +2,15 @@ import { View, Image, Dimensions,Share,Vibration } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import ImagePicker from 'react-native-image-crop-picker';
 import Button from '../../library/components/Button';
-import { useIsFocused } from '@react-navigation/native';
 import IsFocusedHoc from '../../library/components/Hoc';
 import { DrawerActions } from '@react-navigation/native';
+import { Texts } from '../../library/constants';
 
 const { width } = Dimensions.get('window')
 
 function MyAccount(props) {
     const { navigation,isFocused } = props;
 
-    // const isFocused = useIsFocused()
     const [images, setImages] = useState([])
     useEffect(() => {
         setImages([])
@@ -46,7 +45,6 @@ function MyAccount(props) {
             alert(err)
         })
     }
-    console.log(props,"props")
     return (
         <View
             style={{ flex: 1 }}
@@ -67,19 +65,19 @@ function MyAccount(props) {
             </View>
             <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center', }}>
                 <Button
-                    label={'Open Drawer'}
+                    label={Texts.OPEN_DRAWER}
                     onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
                     color={'#FFF'}
                     style={{ margin: 10, width: width - 40 }}
                 />
                 <Button
-                    label={'Open Picker'}
+                    label={Texts.OPEN_PICKER}
                     onPress={handleOpenPicker}
                     color={'#FFF'}
                     style={{ margin: 10, width: width - 40, }}
                 />
                 <Button
-                    label={'Open Camera'}
+                    label={Texts.OPEN_CAMERA}
                     onPress={handleCameraPicker}
                     color={'#FFF'}
                     style={{ margin: 10, width: width - 40 }}

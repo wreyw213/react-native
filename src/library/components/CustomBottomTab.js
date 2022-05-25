@@ -5,10 +5,9 @@ import Images from '../Icons';
 
 export default function CustomBottomTab({state,navigation}) {
   return (
-          <View style={{ flexDirection: 'row',backgroundColor:'#1f9b9a',paddingVertical : 15,borderRadius :10}}>
+          <View style={{ flexDirection: 'row',backgroundColor:'#2C8FF2',paddingVertical : 15,borderRadius :10}}>
             {BottomTabItems.map((route, index) => {
               const isFocused = state.index === index;
-              console.log(state.index,index,isFocused,"isFOcused");
               const onPress = () => {
                 const event = navigation.emit({
                   type: 'tabPress',
@@ -35,7 +34,7 @@ export default function CustomBottomTab({state,navigation}) {
                   onLongPress={onLongPress}
                   style={{ flex: 1,alignItems:'center' }}
                 >
-                  <Image source={Images[route.Icon]} style={[index == 1 ? styles.absoluteIcon : styles.tabIcon, { tintColor: isFocused ? '#0bf459' : '#FFF' }]} />
+                  <Image source={Images[route.Icon]} style={[index == 1 ? styles.absoluteIcon : styles.tabIcon, { tintColor: isFocused ? '#4114eb' : '#FFF' }]} />
                 </TouchableOpacity>
               );
             })}
@@ -56,6 +55,6 @@ const styles = StyleSheet.create({
       borderRadius :50,
       borderWidth:2,
       borderColor:"#0bf459",
-      backgroundColor:'#1f9b9a'
+      backgroundColor:'#2C8FF2'
     }
   })

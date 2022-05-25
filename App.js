@@ -1,10 +1,8 @@
 
 import React, { createRef } from 'react';
-import {
-  SafeAreaView, Image, StyleSheet,View,TouchableOpacity,Text
-} from 'react-native';
-  import { NavigationContainer } from '@react-navigation/native';
- import DrawerNavigation from './src/Navigation/DrawerNavigation';
+import { SafeAreaView } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import DrawerNavigation from './src/Navigation/DrawerNavigation';
 
 export default App = () => {
   const navigationRef = createRef()

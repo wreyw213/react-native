@@ -1,16 +1,17 @@
 import {StyleSheet,Dimensions} from 'react-native';
+import { Colors, Texts } from '../../library/constants';
 const { width } = Dimensions.get('window')
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#FFFFFF',
+        backgroundColor:Colors.WHITE,
         flex: 1,
     },
     card: {
         marginLeft: width/25,
         marginRight: width/25,
         marginTop:width/23.43,
-        backgroundColor: "#F8FAFB",
+        backgroundColor: Colors.F8FAFB,
         height: width / 3.07,
         alignItems: 'center',
         justifyContent: 'center',
@@ -24,13 +25,13 @@ const styles = StyleSheet.create({
     lightText: {
         fontSize: 12,
         lineHeight: 16,
-        color: '#666666',
+        color: Colors.A666666,
         marginTop: 10,
-        fontFamily: "Inter-Regular"
+        fontFamily: Texts.INTER_REGULAR
     },
     heading: {
         fontSize: 14,
-        fontFamily: "OpenSans-Bold"
+        fontFamily: Texts.OPENSANS_BOLD
     },
 
     subClaimView: {
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
         padding:width/19.5,
         width:width/1.19,
         alignSelf:'center',
-        backgroundColor: '#F8FAFB',
+        backgroundColor: Colors.F8FAFB,
         flexDirection: 'row',
     },
     claimCard: {
